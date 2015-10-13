@@ -6,5 +6,5 @@ To install:
         git clone https://github.com/colorthought/dotfiles.git ~/dotfiles
         cd ~/dotfiles
         sh install_vimrc.sh
-        
+change        
 Enjoy!
