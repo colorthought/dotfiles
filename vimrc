@@ -19,6 +19,7 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'https://github.com/Shougo/unite.vim.git'
 NeoBundle 'https://github.com/Shougo/neomru.vim.git'
 NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
+NeoBundle 'https://github.com/scrooloose/syntastic.git'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -36,26 +37,32 @@ filetype plugin indent on    " required
 :map <Space> <leader>
 
 " Colors
-colorscheme solarized
+colorscheme seoul256
 set background=dark
+let g:seoul256_background = 235
+let g:gruvbox_termcolors=256
+let g:airline_theme='gruvbox'
 " Hacky
 :let g:tog=0
 nnoremap <leader>z :call ToggleDiff()<CR>
 function! ToggleDiff()
     if g:tog==1
         set background=dark
-        colorscheme solarized
+        colorscheme seoul256
         :let g:tog=0
-        :Goyo!
+        :execute ":Goyo!"
+        
     else
         set background=light
         colorscheme pencil256
         :let g:tog=1
-        :Goyo 120
+        :execute ":Goyo 50"
+        
     endif
 endfunction
 
 syntax enable
+set clipboard=unnamed
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -73,15 +80,18 @@ if has('mouse')
   set mouse=a
 endif
 set showcmd
-"set nowrap
+set wrap
 set incsearch
 set ignorecase
 set smartcase
 
-" General mappings
+" General mappings and leader keys
 nnoremap Q <nop>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>/ :noh<CR>
+nnoremap <leader>y "*y
+nnoremap <leader>p "*p
+nnoremap <leader>P "*P
+nnoremap <leader>d "*d
 
 "CrlP
 let g:tctrlp_custom_ignore = {
@@ -110,8 +120,8 @@ set hidden
 
 " Buffer Movement
 nmap <leader>T :enew<cr>
-nmap <leader>j :bnext<CR>
-nmap <leader>k :bprevious<CR>
+nmap <leader>j :bprevious<CR>
+nmap <leader>k :bnext<CR>
 nmap <leader>q :bd<CR>
 nmap <leader>Q :bd!<CR>
 
@@ -127,7 +137,7 @@ nmap gv <C-w>v                      "close a split
 " NERDTree
 nnoremap <leader>n :NERDTree<CR>      "Default Nerdtree Open
 let NERDTreeQuitOnOpen=1
-let g:NERDTreeWinSize = 20 
+let g:NERDTreeWinSize = 20
 
 " Tab Movement
 "nnoremap <leader>q :QuitTab<cr>

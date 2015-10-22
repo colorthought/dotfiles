@@ -1,18 +1,11 @@
 # profile
-alias vi='/usr/local/bin/vi'
-alias vim='/usr/local/bin/vim'
-
 export PS1="\[\033[38;5;7m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\]@\[$(tput sgr0)\]\[\033[38;5;7m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
  #ls aliases
 alias ll='ls -lG'
 alias la='ls -A'
-alias l='ls'
+alias l='ls -CFlh'
 alias s='ls -CFlh'
-alias sl='ls'
-
-#ls coloring
-export CLICOLOR=1
 
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -44,11 +37,7 @@ alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
 alias gp='git pull'
 
 
-# ----------------------
-# Other shortcut aliases
-# ----------------------
 
-alias c='clear'
 
 # ----------------------
 # Postgres-start and stop

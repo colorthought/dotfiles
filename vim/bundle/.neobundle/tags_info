@@ -1,8 +1,10 @@
 ack.vim
+badwolf
 ctrlp.vim
 goyo.vim
 neomru.vim
 nerdtree
+syntastic
 unite.vim
 vim-airline
 vim-colors-solarized
