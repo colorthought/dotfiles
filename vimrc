@@ -44,8 +44,6 @@ call neobundle#end()               " required
 filetype plugin indent on          " required
 
 
-
-
 " --------------
 "    Settings
 " --------------
@@ -56,7 +54,8 @@ filetype plugin indent on          " required
 " Colors
 colorscheme seoul256
 set background=dark
-let g:seoul256_background = 235
+let g:seoul256_background = 236
+let g:gruvbox_termcolors=256
 let g:airline_theme='gruvbox'
 
 " Switch between dark and Goyo + Zenroom light with leader mapping
@@ -110,7 +109,6 @@ set nolist       " with list on, linebreak is disabled
 set textwidth=0  " keeps Vim from inserting line breaks unless you ask for them
 set wrapmargin=0 " keeps Vim from inserting line breaks unless you ask for them
 set breakindent  " indents wrapped lines! Finally!!
-
 
 
 " --------------
