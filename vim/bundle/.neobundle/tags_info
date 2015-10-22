@@ -1,5 +1,4 @@
 ack.vim
-badwolf
 ctrlp.vim
 goyo.vim
 neomru.vim
@@ -8,9 +7,8 @@ syntastic
 unite.vim
 vim-airline
 vim-colors-solarized
-vim-misc
+vim-easy-align
 vim-signature
 vim-surround
 vim-zenroom2
-vimfiler.vim
 vimproc.vim
