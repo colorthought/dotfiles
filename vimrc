@@ -43,7 +43,15 @@ NeoBundle 'Shougo/vimproc.vim', {
 call neobundle#end()               " required
 filetype plugin indent on          " required
 
-:map <Space> <leader>              " set leader key
+
+
+
+" --------------
+"    Settings
+" --------------
+
+" Leader key
+:map <Space> <leader>
 
 " Colors
 colorscheme seoul256
@@ -67,7 +75,6 @@ function! ToggleDiff()
         :execute ":Goyo 50"
     endif
 endfunction
-
 
 " Tab commands and defaults
 set tabstop=4        " tab width is 4 spaces
@@ -104,14 +111,60 @@ set textwidth=0  " keeps Vim from inserting line breaks unless you ask for them
 set wrapmargin=0 " keeps Vim from inserting line breaks unless you ask for them
 set breakindent  " indents wrapped lines! Finally!!
 
-" General mappings and leader keys
-nnoremap Q <nop>            " don't use Ex mode, that's dumb
-nnoremap <leader>w :w<CR>   " save current buffer
-nnoremap <leader>y "*y      " yank to system clipboard
-nnoremap <leader>p "*p      " paste from system clipboard
-nnoremap <leader>P "*P      " paste above from system clipboard
-nnoremap <leader>d "*d      " delete (cut) to system clipboard
-nnoremap <leader>/ :noh<CR> " remove all highlighting
+
+
+" --------------
+"    Mappings
+" --------------
+
+" don't use Ex mode, that's dumb
+nnoremap Q <nop>
+" save current buffer
+nnoremap <leader>w :w<CR>
+" yank to system clipboard
+nnoremap <leader>y "*y
+" paste from system clipboard
+nnoremap <leader>p "*p
+" paste above from system clipboard
+nnoremap <leader>P "*P
+" delete (cut) to system clipboard
+nnoremap <leader>d "*d
+" remove all highlighting
+nnoremap <leader>/ :noh<CR>
+
+" left split
+nmap gh <C-w>h
+" up split
+nmap gj <C-w>j
+" down split
+nmap gk <C-w>k
+" right split
+nmap gl <C-w>l
+" close a split
+nmap gq <C-w>q
+" vertical split
+nmap gs <C-w>s
+" horizontal split
+nmap gv <C-w>v
+
+" new buffer
+nmap <leader>T :enew<cr>
+" previous buffer
+nmap <leader>j :bprevious<CR>
+" next buffer
+nmap <leader>k :bnext<CR>
+" close buffer
+nmap <leader>q :bd<CR>
+" close buffer (without changes)
+nmap <leader>Q :bd!<CR>
+
+" delete all trailing whitespace with F5
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+
+" -------------------
+"   Plugin Settings
+" -------------------
 
 "CrlP settings
 let g:tctrlp_custom_ignore = {
@@ -137,24 +190,8 @@ let g:airline#extensions#tabline#enabled  = 1    " shows all buffers with tab
 let g:airline#extensions#tabline#fnamemod = ':t' " differentiate buffers
 set hidden
 
-" Buffer Movement
-nmap <leader>T :enew<cr>              " new buffer
-nmap <leader>j :bprevious<CR>         " previous buffer
-nmap <leader>k :bnext<CR>             " next buffer
-nmap <leader>q :bd<CR>                " close buffer
-nmap <leader>Q :bd!<CR>               " close buffer (without changes)
-
-" Split/Window Movement
-nmap gh <C-w>h                        " left split
-nmap gj <C-w>j                        " up split
-nmap gk <C-w>k                        " down split
-nmap gl <C-w>l                        " right split
-nmap gq <C-w>q                        " close a split
-nmap gs <C-w>s                        " vertical split
-nmap gv <C-w>v                        " horizontal split
-
 " NERDTree
-nnoremap <leader>n :NERDTree<CR>    "Default Nerdtree Open
+nnoremap <leader>n :NERDTree<CR>
 let NERDTreeQuitOnOpen=1            " NERDTree closes when you open a file
 let g:NERDTreeWinSize = 20          " good size for a file explorer
 

@@ -1,7 +1,3 @@
-# profile
-alias vi='/usr/local/bin/vi'
-alias vim='/usr/local/bin/vim'
-
 export PS1="\[\033[38;5;7m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\]@\[$(tput sgr0)\]\[\033[38;5;7m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
  #ls aliases
