@@ -20,6 +20,7 @@ NeoBundle 'https://github.com/scrooloose/nerdtree.git'
 " Text helper plugins
 NeoBundle 'https://github.com/tpope/vim-surround.git'
 NeoBundle 'https://github.com/scrooloose/syntastic.git'
+NeoBundle 'https://github.com/sheerun/vim-polyglot.git'
 NeoBundle 'junegunn/vim-easy-align'
 
 " Interface plugins
@@ -58,6 +59,11 @@ let g:seoul256_background = 236
 let g:gruvbox_termcolors=256
 let g:airline_theme='gruvbox'
 
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+  set t_Co=16
+endif
+
 " Switch between dark and Goyo + Zenroom light with leader mapping
 :let g:tog=0
 nnoremap <leader>z :call ToggleDiff()<CR>
@@ -86,16 +92,19 @@ set hlsearch   " adds highlighting to searched terms
 set incsearch  " moves cursor to string while searching
 set ignorecase " ignore case in searches
 set smartcase  " if there is an uppercase letter in search, case-sensitive
+set wildmenu   " tab completion on commands
 
 "Other
 syntax enable                     " turn on color syntax highlighting
 set nowritebackup                 " imo those private .vim backup files are dumb
 set clipboard=unnamed             " all vim instances use the same clipboard
 set backspace=indent,eol,start    " backspace now deletes over line breaks
-set history=50                    " fixed undo history
+if &history < 1000
+  set history=1000                " fixed undo history
+endif
 set ruler                         " shows line and column numbers
 set number                        " sets line numbers in botton right
-autocmd! GUIEnter * set vb t_vb= " disable beeping
+autocmd! GUIEnter * set vb t_vb=  " disable beeping
 if has('mouse')
   set mouse=a                     " allows mouse (if available)
 endif
@@ -170,7 +179,8 @@ let g:tctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
     \}
 let g:ctrlp_working_path_mode = 'r'     " CtrlP searches for nearest .git, .svn, .hg, etc
-nmap <leader>c :CtrlP<cr>               " start CtrlP with the leader key
+" start CtrlP with the leader key
+nmap <leader>c :CtrlP<CR>
 
 " Unite mappings with ack-grep
 let g:unite_source_grep_command = 'ag'

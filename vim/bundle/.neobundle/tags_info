@@ -8,6 +8,7 @@ unite.vim
 vim-airline
 vim-colors-solarized
 vim-easy-align
+vim-polyglot
 vim-signature
 vim-surround
 vim-zenroom2
